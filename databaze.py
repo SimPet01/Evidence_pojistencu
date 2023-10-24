@@ -1,9 +1,9 @@
 import sqlite3
 from sqlite3 import Error as SQLError
 
-class Databaze:
+class Databaze:                                                 # třída upravující komunikaci s databází (dtb)
 
-    def __init__(self, cur = None, conn = None):
+    def __init__(self, cur = None, conn = None):                # iniciace proměných použitých napříč metodami ve třídě Databáze
         self.cur = cur
         self.conn = conn
         self.vytvor_spojeni()
@@ -12,16 +12,16 @@ class Databaze:
 
     def vytvor_spojeni(self, dtb_soubor = "Databáze_pojištěných",):
        try:
-            self.conn = sqlite3.connect(dtb_soubor)
-            self.cur = self.conn.cursor()
+            self.conn = sqlite3.connect(dtb_soubor)             # vytvoření spojení s dtb
+            self.cur = self.conn.cursor()                       # spojení kurzoru
             return self.conn
-       except SQLError:
+       except SQLError:                                         # chybová hláška
            print("Chyba spojení s databází!\n", SQLError)
 
 
     def vytvor_tabulku(self):
         create_table_cmd = """
-        CREATE TABLE IF NOT EXISTS uzivatele (
+        CREATE TABLE IF NOT EXISTS uzivatele (                  # příkaz pro dtb
             id_uzivatele INTEGER PRIMARY KEY AUTOINCREMENT,
             jmeno TEXT,
             prijmeni TEXT,
@@ -32,15 +32,15 @@ class Databaze:
         self.conn.commit()
 
 
-    def pridat_uzivatele(self, jmeno = "", prijmeni = "", vek = -1, telefon = -1):
+    def pridej_uzivatele(self, jmeno = "", prijmeni = "", vek = -1, telefon = -1):
         insrt_cmd = "INSERT INTO uzivatele (jmeno, prijmeni, vek, telefon) VALUES(?, ?, ?, ?)"
-        insrt_data = (jmeno, prijmeni, vek, telefon)
+        insrt_data = (jmeno, prijmeni, vek, telefon)            # 'id_uzivatele' sloupec si vytvoří dtb sama při každém přidání nového řádku
         self.cur.execute(insrt_cmd, insrt_data)
         self.conn.commit()
         print("\n------------------------------\nOsoba byla úspěšně přidána do databáze pojištěných.")
 
 
-    def nacist_uzivatele(self):
+    def vypis_uzivatele(self):
         print("\n------------------------------\nV databázi jsou následující uživatelé:")
         print("(jmeno, prijmeni, vek, telefon):\n")
         self.cur.execute("SELECT jmeno, prijmeni, vek, telefon FROM uzivatele")
