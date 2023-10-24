@@ -1,6 +1,7 @@
 Evidence pojištěnců
 (Finální projekt v rámci kurzu ITnetwork)
 
+
 Aplikace napsaná v Pythonu pro pohyb pojištěných osob do/z databáze.
 Aplikace je ovládána přes konzoli a má tyto hlavní funkcionality:
   - vytvoření jednoduchého databázové souboru
@@ -8,9 +9,10 @@ Aplikace je ovládána přes konzoli a má tyto hlavní funkcionality:
   - výpis všech řádků databáze
   - vyhledání pojištěnců z databáze podle jména a příjmení.
 
-Při psaní programu jsem se snažil použít spektrum dovedností, které jsem si osvojil během rekvalifikačního kurzu
+
+Při psaní programu jsem se snažil použít spektrum dovedností, které jsem si osvojil během rekvalifikačního kurzu:
   - OOP přístup
-  - ošetření datových vstupů od uživatele aplikace
+  - validace vstupních dat a ošetření neočekávaných vstupů
   - chybové hlášky
   - přehledný kód
   - komentáře
