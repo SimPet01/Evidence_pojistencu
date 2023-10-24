@@ -7,47 +7,37 @@ databaze = Databaze()
 
 class Povely:
 
-    def vyber_moznost(self, pokracovat = True, spatne = "Nepovolená volba. Zkuste to znovu.\n"):
+
+
+    def vyber_moznost(self, pokracovat = True, spatne = "Neplatná volba. Zkuste to znovu.\n"):
         while pokracovat:
             prostredi.zobraz_nadpis_akci()
-            spravne_zadani = False
-            while spravne_zadani != True:
+            volba = int(input("Zadejte číslo úkonu: "))
+            match (volba):
+                case 1:
+                    jmeno = prostredi.osetri_text_input("Zadejte jméno: ")
+                    prijmeni = prostredi.osetri_text_input("Zadejte příjmení: ")
+                    vek = prostredi.osetri_vek_input()
+                    telefon = prostredi.osetri_telefon_input()
 
-                    volba = int(input("Zadejte číslo úkonu: "))
-                    if volba == 1:
-                        spravne_zadani = True
+                    databaze.pridat_uzivatele(jmeno, prijmeni, vek, telefon)
 
-                        jmeno = input("Zadejte jméno: ")
-                        prijmeni = input("Zadejte příjmení: ")
-                        vek = int(input("Zadejte věk: "))
-                        telefon = int(input("Zadejte telefonní číslo: "))
+                case 2:
+                    databaze.nacist_uzivatele()
 
-                        databaze.pridat_uzivatele(jmeno, prijmeni, vek, telefon)
-                        print("Osoba byla úspěšně přidána do databáze pojištěných.")
+                case 3:
+                    jmeno = prostredi.osetri_text_input("Zadejte jméno: ")
+                    prijmeni = prostredi.osetri_text_input("Zadejte příjmení: ")
 
-                    elif volba == 2:
-                        spravne_zadani = True
+                    databaze.vyhledej_uzivatele(jmeno, prijmeni)
 
-                        databaze.nacist_uzivatele()
+                case 4:
+                    pokracovat = False
+                    databaze.ukonci_spojeni()
+                    pass
 
-                    elif volba == 3:
-                        spravne_zadani = True
-
-                        jmeno = input("Zadejte jméno: ")
-                        prijmeni = input("Zadejte příjmení: ")
-
-                        databaze.vyhledej_uzivatele(jmeno, prijmeni)
-
-                    elif volba == 4:
-                        spravne_zadani = True
-                        pokracovat = False
-                        databaze.ukonci_spojeni()
-                        print("        PROGRAM UKONČEN\n------------------------------------------")
-                        pass
-
-                    else:
-                        print(spatne)
+                case _:
+                    print(spatne)
 
 
-povely = Povely()
-povely.vyber_moznost()
+

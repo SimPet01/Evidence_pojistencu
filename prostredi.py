@@ -28,4 +28,39 @@ class Prostredi:
         prostredi._vycisti_obrazovku()
         prostredi.vypis_nadpis()
 
+    def osetri_text_input(self, pobidka):
+        while True:
+            user_input = input(pobidka)
+            if user_input and all((x.isalpha() or x.isspace()) for x in user_input):
+                if user_input[0].isupper():
+                    return user_input
+                else:
+                    print("První písmeno by mělo být velké.")
+            else:
+                print("Vstup by měl obsahovat pouze písmena a mezery.")
+
+    def osetri_vek_input(self):
+        while True:
+            vek = input("Zadejte věk: ")
+            if vek.isdigit():
+                vek = int(vek)
+                if 1 <= vek <= 120:
+                    return vek
+                else:
+                    print("Věk by měl být v rozmezí 1 až 120 let.")
+            else:
+                print("Věk by měl být zadán jako číslo.")
+
+    def osetri_telefon_input(self):
+        while True:
+            telefon = input("Zadejte telefon: ")
+            if telefon.isdigit():
+                if len(telefon) == 9:
+                    return int(telefon)
+                else:
+                    print("Telefon by měl obsahovat devět cifer.")
+            else:
+                print("Telefon by měl být zadán jako číslo.")
+
+
 prostredi = Prostredi()
