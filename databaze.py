@@ -19,9 +19,9 @@ class Databaze:                                                 # třída upravu
            print("Chyba spojení s databází!\n", SQLError)
 
 
-    def vytvor_tabulku(self):
+    def vytvor_tabulku(self):                                   # příkaz pro dtb
         create_table_cmd = """
-        CREATE TABLE IF NOT EXISTS uzivatele (                  # příkaz pro dtb
+        CREATE TABLE IF NOT EXISTS uzivatele (                  
             id_uzivatele INTEGER PRIMARY KEY AUTOINCREMENT,
             jmeno TEXT,
             prijmeni TEXT,
