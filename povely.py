@@ -10,7 +10,7 @@ class Povely:
     def vyber_moznost(self, pokracovat = True, spatne = "Neplatná volba. Zkuste to znovu.\n"):
         while pokracovat:
             prostredi.zobraz_nadpis_akci()  # metoda vyčistí konzoli, zobrazí nadpis 'Evidence pojištěných' a zobrazí seznam voleb
-            volba = int(input("Zadejte číslo úkonu: "))
+            volba = input("Zadejte číslo úkonu: ")
             match (volba):
                 case 1:
                     jmeno = prostredi.osetri_text_input("Zadejte jméno: ")          # ošetřený input od uživatele
