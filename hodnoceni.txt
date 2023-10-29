@@ -1,0 +1,15 @@
+Ceníme práci na projektu! 🏆 Prohlédli jsme si kód a máme k němu následující poznámky:
+
+1. Pojmenování identifikátorů -  OK, třída povelyy se mohla jmenovat možná trochu jinak, třeba EvidenceController.
+2. Dodržení principů SRP a SoC - SRP OK, ale SoC by chtgělo zlepšit. Například třída databáze by neměla data vypisovat do konzole, ale pouze je předat do třídy povely a ty by to pak měli předat do prostředí, které to vykreslí. Jinak nejsou rozděleny conmcerns.
+3. Vhodný výběr datových typů - OK
+4. Formátování kódu - OK
+5. Duplicitní kód a nekonečné cykly - Bez duplicit, ale jsou použity nekonečné cykly při validaci dat. While True je špatně čitelný cyklus a tím snadno vznikne chyba.
+6. Validace vstupních dat - OK
+7. Logičnost a složitost - OK
+8. Komentáře - Mohlo by jich být více, zejména pak podle normy https://www.geeksforgeeks.org/python-docstrings/
+9. Celkové hodnocení - Zadání splněno, zaměřil bych se ještě na koncept SoC, který je v praxi hodně důležitý.
+
+Doporučujeme případné výtky v kódu opravit, abyste jej mohli pak prezentovat budoucímu zaměstnavateli v co nejlepší kvalitě. 
+
+Pokud byste potřebovali s čímkoli pomoci, naplánujte si s námi konzultaci, rádi vám poradíme!
